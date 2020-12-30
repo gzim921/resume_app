@@ -1,0 +1,13 @@
+<h1>Welcome to the Resume App</h1>
+<% if logged_in? %>   
+	<h2>You are Logged In, <%= current_user.name.split[0] %> as a <%= current_user.user_type %></h2>
+
+
+<%end%>
+<% if !logged_in? %>
+	<%= button_to "Login", '/login', method: :get%>
+	<%= button_to "Sign Up", '/users/new', method: :get%>
+<% else %>
+	<%= button_to "Access Book", 'authorized', method: :get%>
+	<%= button_to "Logout", '/logout', method: :delete%>
+<% end %>
